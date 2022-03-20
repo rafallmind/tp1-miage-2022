@@ -1,6 +1,6 @@
 # TP MIAGE conception logicielle
 
-NOTE: TP de deux slots de 1h20
+NOTE: TP de trois slots de 1h20
 
 ## Nom du(des) étudiant(e)(s) de ce monôme/binôme 
 WARNING: NE PAS OUBLIER DE MENTIONNER LES DEUX NOMS SI VOUS ETES EN BINOME!
