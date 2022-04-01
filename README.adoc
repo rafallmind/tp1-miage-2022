@@ -38,24 +38,38 @@ TIP: [Rappel Git] Trois dépôts sont ici utilisés: le dépot Github de l'ensei
 * Observer le code du projet `todolist-debut-ex1`
 
 *Le code est-il structuré en couches ? Quel problèmes ce code peut-il poser ?*
+En théorie, on peut retrouver 4 couches différentes : Présentation --> Service --> Domaine --> Infrastructure.
+Ici, on ne retrouve pas cette répartition, en effet, les classes ne sont pas séparées en package.
 
 *Où se trouve le code métier (voir la règle de gestion RG 1) ?*
+Le code métier se trouve dans la classe TodoListController. Il correspondrait à la couche domaine.
 
 *Cette règle est-elle facilement testable par un test unitaire ?*
+Le niveau de visibilité est private et rend le test unitaire plus complexe. Un niveau de visibilité "public" permettrait d'acceder plus facilement à la fonction et ainsi de réaliser les TU.
 
 * Lancer une base PostgreSQL en Docker dans un terminal (on lance ici la base en mode interactif pour visualiser son activité. Pour la lancer en tâche de fond, remplacer les options `it` par `d` comme 'daemon'):
 ```bash
 docker run -it -e POSTGRES_PASSWORD=password -p 5432:5432 postgres
 ```
 *Expliquer cette ligne de commande (y compris les options utilisées)*
+Forme de la commande : docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+docker permet de définir quel type de commande sera executé
+run (docker run) permet de lancer une commande 
+-it permet de définir un nom au conteneur docker (ici postgres)
+-e permet de définir les variables d'environnement dans le conteneur qu'on éxécute ou alors va redéfinir les variables prédéfinies par le fichier docker (ici définit le mot de passe postrgre)
+-p permet de définit les ports utilisés (ici 5432:5432)
+
 
 * Compléter le code manquant dans la méthode `TodoListController.createTodoItem()`
+CF CODE
 
 *Pourquoi `todoItemRepository` est-il `null` ? Quelle est la meilleure façon de l'injecter ?*
-
-* Modifier le code en conséquence.
+Il manquait l'injection de dépendance. Pour cela, il faut rajouter @Inject sur le constructeur du controller
+* Modifier le code en conséquence.*
+CF Code
 
 * Tester vos endpoints avec un client REST.
+
 
 
 [NOTE]
@@ -77,6 +91,15 @@ NOTE: Pour lancer l'application Spring, selectionner la classe `TodolistApplicat
 * Quand le nouveau endpoint fonctionne, commiter, faire un push vers Github et fermer le projet Eclipse (ne pas le supprimer).
 
 * Vérifier avec DBeaver que les donnnées sont bien en base PostgreSQL.
+
+
+
+
+
+* ------------------------------------------------------------------
+
+
+
 
 ### Exercice 2 - Refactoring en architecture hexagonale
 _Temps estimé : 1 h 20_
@@ -119,5 +142,4 @@ _Temps estimé : 20 mins_
 - Pour tester l'adapter REST, utiliser l'annotation `@WebMvcTest(controllers = TodoListController.class)`
 - Voir cette https://spring.io/guides/gs/testing-web/[documentation]
 =====
-
 
