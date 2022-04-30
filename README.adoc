@@ -3,14 +3,11 @@
 NOTE: TP de trois slots de 1h20
 
 ## Nom du(des) étudiant(e)(s) de ce monôme/binôme 
-WARNING: NE PAS OUBLIER DE MENTIONNER LES DEUX NOMS SI VOUS ETES EN BINOME!
+#AUBERT Julian# et #SERY Angèle#
 
-#XXX# (et #YYY#)
-
-Commentaires éventuels des étudiants : #XXXXXX#
+Commentaires éventuels des étudiants : #Pas de commentaires particuliers#
 
 ## Pré-requis 
-
 * Disposer d'un PC d'au moins 8 Gio de RAM avec 20 Gio de disque disponible ;
 * Disposer d'une version recente de VirtualBox ;
 * Disposer d'un compte Github par personne (ou un pour deux personnes si vous êtes en binôme) et avoir https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token[créé un access token] avec le droit `repo`;
@@ -54,7 +51,7 @@ docker run -it -e POSTGRES_PASSWORD=password -p 5432:5432 postgres
 *Expliquer cette ligne de commande (y compris les options utilisées)*
 Forme de la commande : docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 docker permet de définir quel type de commande sera executé
-run (docker run) permet de lancer une commande 
+run (docker run) permet de lancer une commande de type docker
 -it permet de définir un nom au conteneur docker (ici postgres)
 -e permet de définir les variables d'environnement dans le conteneur qu'on éxécute ou alors va redéfinir les variables prédéfinies par le fichier docker (ici définit le mot de passe postrgre)
 -p permet de définit les ports utilisés (ici 5432:5432)
@@ -65,11 +62,12 @@ CF CODE
 
 *Pourquoi `todoItemRepository` est-il `null` ? Quelle est la meilleure façon de l'injecter ?*
 Il manquait l'injection de dépendance. Pour cela, il faut rajouter @Inject sur le constructeur du controller
+
 * Modifier le code en conséquence.*
 CF Code
 
 * Tester vos endpoints avec un client REST.
-
+Tests effectués et fonctionnels.
 
 
 [NOTE]
@@ -91,10 +89,7 @@ NOTE: Pour lancer l'application Spring, selectionner la classe `TodolistApplicat
 * Quand le nouveau endpoint fonctionne, commiter, faire un push vers Github et fermer le projet Eclipse (ne pas le supprimer).
 
 * Vérifier avec DBeaver que les donnnées sont bien en base PostgreSQL.
-
-
-
-
+#TODO
 
 * ------------------------------------------------------------------
 
