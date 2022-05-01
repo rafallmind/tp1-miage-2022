@@ -111,6 +111,10 @@ Source : http://leanpub.com/get-your-hands-dirty-on-clean-architecture[Tom Hombe
   - la couche `domain` qui contient les entités (au sens DDD, pas au sens JPA). En général des classes complexes (méthodes riches, relations entre les entités)
 
 *Rappeler en quelques lignes les grands principes de l'architecture hexagonale.*
+Le principe de l'architécture hexagonale est la séparation du code en différents ensembles fortement cohérents et faiblement couplés, cela permet la séparation des sujets (SOLID), la possibilité d'appeler un service sans connaitre son fonctionnement (boite noire), d'augmenter la testabilité et la maintenabilité.
+Elle repose sur 3 couches : Service, Domaine et Infrastructure (une 4ème couche serait la Présentation).
+Elle permet une séparation forte entre le domaine (logique métier) et les briques technologiques (IHM, API, BDD). Entre les deux, on peut trouver 2 sortes d'adapter, ceux solicitant le domaine (ports in) et ceux utilisés indirectement par le domaine (ports out) ==> principte d'inversion de dépendances.
+De plus, elle favoriste l'orienté objet riche dans le domaine ainsi que les tests en isolation (TU dans le domaine, TI dans l'adapter)
 
 Compléter ce code avec une fonctionnalité de création de `TodoItem`  persisté en base et appelé depuis un endpoint REST `POST /todos` qui :
 
